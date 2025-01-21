@@ -51,7 +51,7 @@ void triRect(){
     }
 }
 
-float somme(int n){ //j'imagine que ça marche
+int somme(int n){
     int s = 0;
     for (int x=0; x<n+1; x++){
         for (int y=x; y<n-x+1; y++){
