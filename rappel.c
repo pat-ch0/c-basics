@@ -51,10 +51,10 @@ void triRect(){
     }
 }
 
-int somme(int n){
-    int s = 0;
-    for (int x=0; x<n+1; x++){
-        for (int y=x; y<n-x+1; y++){
+float somme(int n){
+    float s = 0.0f;
+    for (int x=0; x<=n; x++){
+        for (int y=x; y<=n-x; y++){
             s += (x + 3*y - 1);
         }
     }
@@ -118,15 +118,18 @@ void defTabInverse(){
     printf("Moyenne : %f\n", moy);
 }
 
-//Pas la méthode la plus efficace mais on a que 15 cases
 void triTab(int tab[15]){
-    for(int i=0; i<14; i++){
-        for(int j=i+1; j<15; j++){
-            if (tab[i] > tab[j]){
-                int save = tab[i];
-                tab[i] = tab[j];
-                tab[j] = save;
+    for(int i = 0; i < 14; i++){
+        int minIndex = i;
+        for(int j = i + 1; j < 15; j++){
+            if (tab[j] < tab[minIndex]){
+                minIndex = j;
             }
+        }
+        if(minIndex != i){
+            int temp = tab[i];
+            tab[i] = tab[minIndex];
+            tab[minIndex] = temp;
         }
     }
     /* //test (dans le main)
